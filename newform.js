@@ -11,3 +11,16 @@ function onSubmit(e) {
   localStorage.setItem(nameInput.value , emailInput.value);
   console.log(localStorage.getItem(nameInput.value));
 }
+
+let myObj = {
+    name:"nikhil",
+    age:23
+};
+console.log(myObj);
+localStorage.setItem("nik1" , myObj);
+let myObj_forLS = JSON.stringify(myObj);
+console.log(myObj_forLS);
+localStorage.setItem("nik2" , myObj_forLS);
+
+let myObj_byLS = JSON.parse(localStorage.getItem('nik2'));
+console.log(myObj_byLS);
