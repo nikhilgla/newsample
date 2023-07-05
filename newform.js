@@ -22,6 +22,12 @@ function onSubmit(e) {
   delBtn.appendChild(document.createTextNode('X'));
   li.appendChild(delBtn);
 
+  var insBtn =document.createElement('button')
+  insBtn.className = "btndel insert";
+  insBtn.appendChild(document.createTextNode('Ins'));
+  li.appendChild(insBtn);
+
+
 
   itemList.appendChild(li)
 }
@@ -50,6 +56,6 @@ function removeItem(e){
         console.log(li);
         var n=li.firstElementChild.previousSibling.previousSibling;
         console.log(n);
-        localStorage.removeItem(n)
+        localStorage.removeItem( n )
     }
   }
