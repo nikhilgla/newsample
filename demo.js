@@ -54,50 +54,52 @@ console.log(itemList.parentNode.parentNode);
 
 
 // childNodes
-console.log(itemList.childNodes);
+// console.log(itemList.childNodes);
 
-console.log(itemList.children[1]);
+// console.log(itemList.children[1]);
 
-console.log(itemList.firstElementChild);
+// console.log(itemList.firstElementChild);
 
-console.log(itemList.lastElementChild);
-
-
-console.log(itemList.nextSibling);
-
-console.log(itemList.nextElementSibling);
+// console.log(itemList.lastElementChild);
 
 
-console.log(itemList.previousSibling);
+// console.log(itemList.nextSibling);
+
+// console.log(itemList.nextElementSibling);
 
 
-console.log(itemList.previousElementSibling);
+// console.log(itemList.previousSibling);
+
+
+// console.log(itemList.previousElementSibling);
 
 // Create ELEMENT
 // create a div
-var newDiv = document.createElement('div')
+// var newDiv = document.createElement('div')
 
-newDiv.className = "hello";
-newDiv.id = "hello1"
-//create text node
-var newDivText = document.createTextNode("HEllo")
-newDiv.appendChild(newDivText)
-console.log(newDiv);
+// newDiv.className = "hello";
+// newDiv.id = "hello1"
+// //create text node
+// var newDivText = document.createTextNode("HEllo")
+// newDiv.appendChild(newDivText)
+// console.log(newDiv);
 
-var container = document.querySelector('header .container');
+// var container = document.querySelector('header .container');
 
-var h1 = document.querySelector('header h1');
-// console.log(h1);
+// var h1 = document.querySelector('header h1');
+// // console.log(h1);
 
-container.insertBefore(newDiv , h1);
+// container.insertBefore(newDiv , h1);
 
 //add another item
-var newLi = document.createTextNode("HEllo")
-newLi.className = 'list-group-item';
-console.log(newLi);
+// var newLi = document.createTextNode("HEllo")
+// newLi.className = 'list-group-item';
+// console.log(newLi);
 
-var itemList = document.querySelector('#items');
-var li= document.querySelector('.list-group-item');
-console.log(li);
+// var itemList = document.querySelector('#items');
+// var li= document.querySelector('.list-group-item');
+// console.log(li);
 
-itemList.insertBefore( newLi, li);
+// itemList.insertBefore( newLi, li);
+
+//delete functionality
