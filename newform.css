@@ -59,6 +59,18 @@
     border-radius: 5px;
     margin: 5px 0;
   }
+  .btndel {
+    
+    display: flexbox;
+    float: right;
+    width: 20%;
+    padding: 1px 5px;
+    border: 0;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
   
   .btn:hover {
     background: #444;
