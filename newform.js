@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 function showOnScreen(userObj){
 
-  const childli =`<li class="item" id=${userObj.name}>${userObj.name}-${userObj.email}-${userObj.phNo}<button onclick=deleteExp('${userObj.name}') class="btn btndel btn-danger btn-sm float-right delete">X</button><button onclick=insertExp('${userObj.name}','${userObj.email}','${userObj.phNo}') class="btn btndel btn-success btn-sm float-right insert">Ins</button></li>`
+  const childli =`<li class="item" id=${userObj.name}>${userObj.name}-${userObj.email}-${userObj.phNo}<button onclick=deleteExp('${userObj.name}','${userObj._id}') class="btn btndel btn-danger btn-sm float-right delete">X</button><button onclick=insertExp('${userObj.name}','${userObj.email}','${userObj.phNo}','${userObj._id}') class="btn btndel btn-success btn-sm float-right insert">Ins</button></li>`
   itemList.innerHTML=itemList.innerHTML + childli;
 
 }
@@ -93,16 +93,19 @@ let myObj = {
 }
 
 
-function deleteExp(name){
-  const cc = document.getElementById(name)
+function deleteExp(name,id){
+  const cc = document.getElementById(name);
   //var li = cc.parentElement;
   itemList.removeChild(cc);
-  localStorage.removeItem(name);
+  axios.delete(`https://crudcrud.com/api/cdf2f06bef944d00a859223532fa44fb/appointmentData/${id}`)
+  .then((ele)=>{console.log(ele)})
+  .catch((err)=>{console.log(err);});
+  // localStorage.removeItem(name);
 }
-function insertExp(namee , emaill , phNoo){
+function insertExp(namee , emaill , phNoo ,id){
   const cc = document.getElementById(namee)
   itemList.removeChild(cc);
-  localStorage.removeItem(namee);
+  // localStorage.removeItem(namee);
   nameInput.value = namee;
   emailInput.value = emaill;
   phNo.value= phNoo;
