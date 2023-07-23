@@ -46,7 +46,25 @@ myForm.addEventListener('submit', onSubmit);
 // let myObj_byLS = JSON.parse(localStorage.getItem('nik2'));
 // console.log(myObj_byLS);
 
+window.addEventListener('DOMContentLoaded', ()=>{
+  axios.get('https://crudcrud.com/api/cdf2f06bef944d00a859223532fa44fb/appointmentData')
+  .then((ele)=>{
+    console.log(ele);
 
+    for(var i=0;i<ele.data.length;i++){
+      showOnScreen(ele.data[i]);
+    }
+  })
+  .catch((err)=> {console.log(err);})
+
+})
+
+function showOnScreen(userObj){
+
+  const childli =`<li class="item" id=${userObj.name}>${userObj.name}-${userObj.email}-${userObj.phNo}<button onclick=deleteExp('${userObj.name}') class="btn btndel btn-danger btn-sm float-right delete">X</button><button onclick=insertExp('${userObj.name}','${userObj.email}','${userObj.phNo}') class="btn btndel btn-success btn-sm float-right insert">Ins</button></li>`
+  itemList.innerHTML=itemList.innerHTML + childli;
+
+}
 
 function onSubmit(e) {
   e.preventDefault();
@@ -59,18 +77,21 @@ let myObj = {
       phNo:phNo.value
   }
   axios.post('https://crudcrud.com/api/cdf2f06bef944d00a859223532fa44fb/appointmentData',myObj)
-  .then((ele)=>{console.log(ele);})
+  .then((ele)=>{
+    console.log(ele.data);
+    showOnScreen(ele.data)
+  })
   .catch((err)=> {console.log(err);})
   // localStorage.setItem(nameInput.value, JSON.stringify(myObj));
   //console.log(localStorage.getItem(nameInput.value));
   //console.log(JSON.parse(localStorage.getItem(desc.value)));
 
-  const childli =`<li class="item" id=${nameInput.value}>${nameInput.value}-${emailInput.value}-${phNo.value}<button onclick=deleteExp('${nameInput.value}') class="btn btn-danger btn-sm float-right delete">X</button><button onclick=insertExp('${nameInput.value}','${emailInput.value}','${phNo.value}') class="btn btn-success btn-sm float-right insert">Ins</button></li>`
-  itemList.innerHTML=itemList.innerHTML + childli;
+  
 
 
   resetForm();
 }
+
 
 function deleteExp(name){
   const cc = document.getElementById(name)
