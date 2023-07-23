@@ -106,6 +106,9 @@ function insertExp(namee , emaill , phNoo ,id){
   const cc = document.getElementById(namee)
   itemList.removeChild(cc);
   // localStorage.removeItem(namee);
+  axios.delete(`https://crudcrud.com/api/cdf2f06bef944d00a859223532fa44fb/appointmentData/${id}`)
+  .then((ele)=>{console.log(ele)})
+  .catch((err)=>{console.log(err);});
   nameInput.value = namee;
   emailInput.value = emaill;
   phNo.value= phNoo;
