@@ -58,8 +58,11 @@ let myObj = {
       email:emailInput.value,
       phNo:phNo.value
   }
-localStorage.setItem(nameInput.value, JSON.stringify(myObj));
-  console.log(localStorage.getItem(nameInput.value));
+  axios.post('https://crudcrud.com/api/cdf2f06bef944d00a859223532fa44fb/appointmentData',myObj)
+  .then((ele)=>{console.log(ele);})
+  .catch((err)=> {console.log(err);})
+  // localStorage.setItem(nameInput.value, JSON.stringify(myObj));
+  //console.log(localStorage.getItem(nameInput.value));
   //console.log(JSON.parse(localStorage.getItem(desc.value)));
 
   const childli =`<li class="item" id=${nameInput.value}>${nameInput.value}-${emailInput.value}-${phNo.value}<button onclick=deleteExp('${nameInput.value}') class="btn btn-danger btn-sm float-right delete">X</button><button onclick=insertExp('${nameInput.value}','${emailInput.value}','${phNo.value}') class="btn btn-success btn-sm float-right insert">Ins</button></li>`
